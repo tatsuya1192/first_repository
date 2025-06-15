@@ -1,0 +1,68 @@
+{
+  "security.workspace.trust.enabled": false,
+  "latex-workshop.latex.recipe.default": "platex and dvipdfmx", // ここを "platex and dvipdfmx" に変更
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "platex and dvipdfmx", // platexとdvipdfmxのレシピが優先されるように、この設定が重要
+      "tools": ["platex", "platex", "dvipdfmx"]
+    },
+    {
+      "name": "uplatex and dvipdfmx", // uplatexも残しておけます
+      "tools": ["uplatex", "uplatex", "dvipdfmx"]
+    },
+    {
+      "name": "latexmk (pdf)", // latexmk (pdflatex) も残しておけます
+      "tools": ["latexmk"]
+    },
+    {
+      "name": "pdflatex", // pdflatex単独も残しておけます
+      "tools": ["pdflatex"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "platex", // platexのツール定義
+      "command": "platex",
+      "args": [
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "uplatex", // uplatexのツール定義
+      "command": "uplatex",
+      "args": [
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "dvipdfmx", // dvipdfmxのツール定義
+      "command": "dvipdfmx",
+      "args": ["%DOCFILE%.dvi"]
+    },
+    {
+      "name": "latexmk", // latexmkのツール定義
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "pdflatex", // pdflatexのツール定義
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ]
+}
